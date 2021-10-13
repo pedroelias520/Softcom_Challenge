@@ -1,5 +1,6 @@
 package br.com.francisco.projeto_final_PDMO.MyAdapter
 
+import android.graphics.BitmapFactory
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.softcom_challenge.Models.Sectors
 import com.example.softcom_challenge.R
 
-class  OperacoesAdapter(private val dataSet: ArrayList<Sectors>):
+class OperacoesAdapter(private val dataSet: ArrayList<Sectors>):
     RecyclerView.Adapter<OperacoesAdapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -37,6 +38,6 @@ class  OperacoesAdapter(private val dataSet: ArrayList<Sectors>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = dataSet[position].title
-        holder.image = dataSet[position].image
+        holder.image.setImageResource(dataSet[position].image)
     }
 }

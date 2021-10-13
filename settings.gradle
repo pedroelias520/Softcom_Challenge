@@ -1,0 +1,2 @@
+rootProject.name = "Softcom_Challenge"
+include ':app'
