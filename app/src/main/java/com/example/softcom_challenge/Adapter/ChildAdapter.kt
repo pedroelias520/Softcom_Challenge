@@ -1,11 +1,15 @@
 
 import android.graphics.Color
 import android.graphics.Paint
+import android.media.Image
 import android.text.Spannable
 import android.text.SpannableString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
@@ -49,7 +53,8 @@ class ChildAdapter : RecyclerView.Adapter<ChildAdapter.VH>() {
         private val DiscountView: TextView = view.findViewById(R.id.discount_textview)
         private val deView:TextView = view.findViewById(R.id.de_textview)
         private val porView:TextView = view.findViewById(R.id.por_textview2)
-
+        private val imageView:ImageView = view.findViewById(R.id.image_view_product)
+        private val shopButton:ImageButton = view.findViewById(R.id.imageButton)
         init {
             view.setOnClickListener {
                 it.isSelected = !it.isSelected
@@ -57,12 +62,12 @@ class ChildAdapter : RecyclerView.Adapter<ChildAdapter.VH>() {
         }
 
         fun bind(item: Product) {
+            imageView.setImageResource(item.image)
             textView.text = item.name
             priceView.text = item.price.toString()
             oldPriceView.text = item.oldPrice.toString()
             oldPriceView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             oldPriceView.setTextColor(Color.parseColor("#FF0000"))
-            println(item.oldPrice)
             val discount = ((item.oldPrice - item.price) * 100.0) / item.oldPrice
 
             if (discount.isNaN() or discount.isInfinite()){
@@ -74,7 +79,6 @@ class ChildAdapter : RecyclerView.Adapter<ChildAdapter.VH>() {
            else {
                 deView.text = "De"
                 porView.text = "Por"
-                println(discount)
                 val discount_view = BigDecimal(discount).setScale(0,RoundingMode.HALF_EVEN)
                 DiscountView.text = ("${discount_view.toString()}% OFF")
             }
@@ -82,3 +86,4 @@ class ChildAdapter : RecyclerView.Adapter<ChildAdapter.VH>() {
 
     }
 }
+

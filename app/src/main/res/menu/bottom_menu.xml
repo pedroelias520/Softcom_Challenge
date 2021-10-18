@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/ic_baseline_home"
+        android:id="@+id/ic_homeFragment"
+        />
+
+    <item android:title="Pedidos"
+        android:icon="@drawable/shopping_cart"
+        android:id="@+id/ic_RequestFragment"
+        />
+
+    <item android:title="Mais"
+        android:icon="@drawable/ic_baseline_more"
+        android:id="@+id/ic_MoreFragment"
+        />
+</menu>

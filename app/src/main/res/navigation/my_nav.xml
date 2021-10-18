@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeScreen">
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.softcom_challenge.Views.HomeScreen"
+        android:label="HomeScreen"
+
+        >
+        <action
+            android:id="@+id/action_homeScreen_to_requestScreen2"
+            app:destination="@id/requestScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestScreen"
+        android:name="com.example.softcom_challenge.Views.RequestScreen"
+        android:label="RequestScreen" >
+        <action
+            android:id="@+id/action_requestScreen_to_selectScreen2"
+            app:destination="@id/selectScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectScreen"
+        android:name="com.example.softcom_challenge.Views.SelectScreen"
+        android:label="SelectScreen" />
+</navigation>

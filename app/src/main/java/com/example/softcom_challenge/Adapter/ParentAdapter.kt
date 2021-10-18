@@ -82,11 +82,6 @@ class ParentAdapter(private val scrollStateHolder: ScrollStateHolder) :
             currentItem = null
         }
 
-        /**
-         * If we fast scroll while this ViewHolder's RecyclerView is still settling the scroll,
-         * the view will be detached and won't be snapped correctly
-         *
-         * To fix that, we snap again without smooth scrolling.
-         */
     }
 }
+

@@ -2,53 +2,78 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:id="@+id/button_slide"
     android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:outlineSpotShadowColor="@color/white"
+    android:clickable="true"
     >
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:layout_margin="0dp"
+
+    <LinearLayout
+        android:background="@drawable/horizontal_item_style"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
         >
+
+
+        <RelativeLayout
+            android:id="@+id/borderCircle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_cicle"
+            android:padding="3dp"
+            >
+
+            <RelativeLayout
+                android:id="@+id/CircleBorder"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_slide_style"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.15">
+
+                <ImageView
+                    android:id="@+id/ImageView_Card"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:srcCompat="@drawable/house_icon"
+                    app:tint="#FFFFFF" />
+
+            </RelativeLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/TextView_Card"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/antipasto_extrabold"
+            android:fontFamily="@font/antipasto_regular"
             android:text="TextView"
+            android:textAlignment="center"
             android:textColor="@color/purple_500"
-            android:textSize="16sp"
+            android:textSize="15sp"
+            android:autoSizeMaxTextSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.956" />
+            app:layout_constraintVertical_bias="1.0"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/card"
-            android:layout_width="60dp"
-            android:layout_height="62dp"
-            android:background="@drawable/button_slide_style"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15">
 
-            <ImageView
-                android:id="@+id/ImageView_Card"
-                android:layout_width="37dp"
-                android:layout_height="35dp"
-                app:srcCompat="@drawable/house_icon" />
-
-        </RelativeLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

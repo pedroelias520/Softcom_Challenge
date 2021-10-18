@@ -35,23 +35,16 @@ class ScrollStateHolder(savedInstanceState: Bundle? = null) {
         const val STATE_BUNDLE = "scroll_state_bundle"
     }
 
-    /**
-     * Provides a key that uniquely identifies a RecyclerView
-     */
+
     interface ScrollStateKeyProvider {
         fun getScrollStateKey(): String?
     }
 
 
-    /**
-     * Persists the [RecyclerView.LayoutManager] states
-     */
+
     private val scrollStates = hashMapOf<String, Parcelable>()
 
-    /**
-     * Keeps track of the keys that point to RecyclerViews
-     * that have new scroll states that should be saved
-     */
+
     private val scrolledKeys = mutableSetOf<String>()
 
     init {

@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.softcom_challenge.R
 
-
-class SelectScreen : Fragment() {
-
+class RequestScreen : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,15 +18,8 @@ class SelectScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select_screen, container, false)
+        return inflater.inflate(R.layout.fragment_request_screen, container, false)
+
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SelectScreen().apply {
-
-            }
-    }
 }
