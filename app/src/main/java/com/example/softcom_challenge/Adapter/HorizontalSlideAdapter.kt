@@ -33,21 +33,25 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>):
         var image: ImageView
         var buttonSlide:CardView = view.findViewById(R.id.button_slide)
         var context = view.context
-        var filterAdapter: FilterAdapter
-        var recyclerView: RecyclerView = view?.findViewById<RecyclerView>(R.id.RecyclerView_Nested)
+        lateinit var filterAdapter: FilterAdapter
+        lateinit var recyclerView:RecyclerView
         lateinit var scrollStateHolder: ScrollStateHolder
 
         init {
+            try{
+                recyclerView = view.findViewById<RecyclerView>(R.id.RecyclerView_Nested)!!
+            }catch (e:Exception){
+                println("ERROR: FAILED TO GET RECYCLER VIEW: ${e}")
+            }
             title = view.findViewById(R.id.TextView_Card)
             image = view.findViewById(R.id.ImageView_Card)
-            filterAdapter = FilterAdapter(context)
-            recyclerView.adapter = filterAdapter
+
+
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.button_slide_sectors, parent, false)
-
         return ViewHolder(view)
     }
 
@@ -66,7 +70,7 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>):
                 if(it.title == dataSet[position].title){
                     SearchResult_list.addAll(it.products)
                 }
-
+                holder.filterAdapter = FilterAdapter(holder.context)
                 holder.recyclerView.adapter = holder.filterAdapter
                 holder.recyclerView.layoutManager = GridLayoutManager(holder.context,2)
                 holder.filterAdapter.setItem(SearchResult_list)

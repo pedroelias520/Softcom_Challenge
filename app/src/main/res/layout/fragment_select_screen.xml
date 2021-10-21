@@ -1,14 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/productView"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:padding="20dp"
+        android:background="@drawable/card_item_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175"
+        app:srcCompat="@drawable/ic_baseline_more"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/discountCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="262dp"
+        android:layout_marginRight="262dp"
+        android:background="@drawable/discount_card"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="TextView"
+        android:textColor="@color/white"
+        android:padding="5dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/productView"
+        app:layout_constraintEnd_toEndOf="@+id/productView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/productView"
+        app:layout_constraintTop_toTopOf="@+id/productView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/titleView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="TextView"
+        android:textColor="@color/purple_500"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productView"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <TextView
+        android:id="@+id/descriptionRecycler"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/comfortaa_bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleView"
+        app:layout_constraintVertical_bias="0.09" />
+
+    <TextView
+        android:id="@+id/obsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Observações"
+        android:textColor="@color/purple_500"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_slide_style"
+        android:gravity="center"
+        android:text="Adicionar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <TextView
+        android:id="@+id/qtdTextView"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/card_item_border"
+        android:fontFamily="@font/comfortaa_bold"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <ImageView
+        android:id="@+id/plusButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/qtdTextView"
+        app:layout_constraintEnd_toEndOf="@+id/qtdTextView"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="@+id/qtdTextView"
+        app:layout_constraintTop_toTopOf="@+id/qtdTextView"
+        app:layout_constraintVertical_bias="0.48"
+        app:srcCompat="@drawable/ic_baseline_add"
+        app:tint="@color/purple_500"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:id="@+id/minusButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/qtdTextView"
+        app:layout_constraintEnd_toEndOf="@+id/qtdTextView"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/qtdTextView"
+        app:layout_constraintVertical_bias="0.48"
+        app:srcCompat="@drawable/ic_baseline_remove"
+        app:tint="@color/purple_500"
+        tools:ignore="VectorDrawableCompat" />
+
+    <EditText
+        android:id="@+id/ObsEditView"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/card_item_border"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

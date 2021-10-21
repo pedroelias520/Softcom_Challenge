@@ -19,15 +19,17 @@ class Functions {
         }
     }
     fun LoadItemsRecycler(adapter:ParentAdapter){
-        val Cama_1 = Product("Ração BomDog", R.drawable.ic_baseline_toys,45.0,0.0,"Uma caminha perfeita para o seu cãozinho")
-        val Cama_2 = Product("Caminha de cachorro", R.drawable.ic_baseline_king_bed,45.50,67.47,"Uma caminha perfeita para o seu cãozinho")
+        val Racao = Product("Ração Br4Dogs 20Kg Adulto", R.drawable.br4dogs,45.0,0.0,"Uma caminha perfeita para o seu cãozinho")
+        val Cama = Product("Caminha de cachorro Br4dogs", R.drawable.br4dogs_bed,45.50,67.47,"Uma caminha perfeita para o seu cãozinho")
+        val Brinquedo = Product("Bolinha de morder", R.drawable.br4dogs_mordedor,129.90,199.99,"Bolinha anti-stress")
+        val Casa = Product("Casinha de cachorro azul", R.drawable.br4dogs_casa,399.99,349.99,"Casa tamanho médio")
+        val Remedio = Product("Ivermectina 3mg", R.drawable.br4dogs_remedio,23.50,0.0,"Ivermectina 3mg")
 
-        repeat(2){ Comedouros_list.add(Cama_1)}
-        repeat(2){ Comedouros_list.add(Cama_2)}
-        repeat(5){ Brinquedos_list.add(Cama_1)}
-        repeat(5){ Casa_list.add(Cama_1)}
-        repeat(5){ Camas_list.add(Cama_1)}
-        repeat(5){ Remedios_list.add(Cama_1)}
+        repeat(5){ Comedouros_list.add(Racao)}
+        repeat(5){ Brinquedos_list.add(Brinquedo)}
+        repeat(5){ Casa_list.add(Casa)}
+        repeat(5){ Camas_list.add(Cama)}
+        repeat(5){ Remedios_list.add(Remedio)}
 
          try {
              Category_lists.add(Category("Comedouros", Comedouros_list))

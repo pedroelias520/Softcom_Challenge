@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private val homeFragment = HomeScreen()
     private val requestScreen = RequestScreen()
-    private val selectScreen = SelectScreen()
+    val selectScreen = SelectScreen()
 
     private fun hideSystemUI() {
         // Ativa o modo imersivo de tela
@@ -66,7 +66,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    private fun replaceFragment(fragment:Fragment){
+
+    fun replaceFragment(fragment:Fragment){
         if(fragment != null){
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragmentContainer, fragment)

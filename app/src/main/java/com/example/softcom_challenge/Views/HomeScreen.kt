@@ -35,6 +35,7 @@ class HomeScreen : Fragment() {
         scrollStateHolder = ScrollStateHolder(savedInstanceState)
         parentAdapter = ParentAdapter(scrollStateHolder)
         filterAdapter = FilterAdapter(requireContext())
+
     }
 
     override fun onCreateView(
@@ -42,6 +43,7 @@ class HomeScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         var v = inflater.inflate(R.layout.fragment_home_screen, container, false)
+
         try {
             HorizontalList = v.findViewById<RecyclerView>(R.id.RecyclerView_Horizontal)
             SearchViewBar = v.findViewById<SearchView>(R.id.SearchView)
@@ -98,6 +100,7 @@ class HomeScreen : Fragment() {
 
         })
     }
+
 
 
 }
