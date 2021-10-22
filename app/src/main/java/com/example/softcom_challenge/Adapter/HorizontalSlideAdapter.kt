@@ -62,13 +62,11 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>, val rootView: Vi
         holder.image.setImageResource(dataSet[position].image)
         holder.buttonSlide.setOnClickListener { name ->
 
-
+            SearchResult_list.clear()
             Category_lists.forEach {
-
                 if (it.title == dataSet[position].title) {
                     SearchResult_list.addAll(it.products)
                 }
-
                 holder.recyclerView = rootView.findViewById(R.id.RecyclerView_Nested)
                 holder.filterAdapter = FilterAdapter(holder.context)
                 holder.recyclerView.adapter = holder.filterAdapter
