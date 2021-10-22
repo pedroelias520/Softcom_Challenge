@@ -2,17 +2,15 @@ package com.example.softcom_challenge.ViewModels
 
 import ParentAdapter
 import android.graphics.Color
+import android.view.Gravity
 import android.view.View
-import android.widget.FrameLayout
 import com.example.softcom_challenge.Adapter.FilterAdapter
 import com.example.softcom_challenge.Models.*
 import com.example.softcom_challenge.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.SnackbarLayout
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.setMargins
 import androidx.fragment.app.FragmentActivity
 import com.example.softcom_challenge.MainActivity
@@ -108,7 +106,6 @@ class Functions {
         val inflater: LayoutInflater = LayoutInflater.from(view.context)
 
         val snackbar = Snackbar.make(view.findViewById(android.R.id.content), "", Snackbar.LENGTH_LONG)
-        val marginFromSides = 0
         val height = 150
 
         val snackView: View = inflater.inflate(R.layout.custom_snack_bar, null)
@@ -125,6 +122,34 @@ class Functions {
         snackbar.view.setBackgroundColor(Color.WHITE)
         val snackBarView = snackbar.view as Snackbar.SnackbarLayout
         val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
+
+
+
+        parentParams.bottomMargin = 100
+        parentParams.gravity = Gravity.START
+        parentParams.height = height
+        parentParams.width = LinearLayout.LayoutParams.MATCH_PARENT
+        snackBarView.layoutParams = parentParams
+        snackBarView.addView(snackView, 1)
+        snackbar.show()
+    }
+
+    fun showSnackBarEndShop(view: View, price:String){
+        val inflater: LayoutInflater = LayoutInflater.from(view.context)
+
+        val snackbar = Snackbar.make(view.findViewById(R.id.RequestRecyclerView), "", Snackbar.LENGTH_LONG)
+        val marginFromSides = 0
+        val height = 150
+
+        val snackView: View = inflater.inflate(R.layout.custom_snack_bar, null)
+        val snackBarTextView = snackView.findViewById<TextView>(R.id.PriceSnackBarText)
+        val snackBarButton = snackView.findViewById<TextView>(R.id.SeeShopCard)
+        snackBarButton.text = price
+        snackBarTextView.text = ""
+
+        snackbar.view.setBackgroundColor(Color.WHITE)
+        val snackBarView = snackbar.view as Snackbar.SnackbarLayout
+        val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
         parentParams.setMargins(marginFromSides, marginFromSides, marginFromSides, marginFromSides)
 
         parentParams.height = height
@@ -135,10 +160,10 @@ class Functions {
         snackbar.show()
     }
 
-    fun showSnackBarEndShop(view: View, price:String){
+    fun showSnackBarSelectItem(view: View, price:String){
         val inflater: LayoutInflater = LayoutInflater.from(view.context)
 
-        val snackbar = Snackbar.make(view.findViewById(R.id.RequestRecyclerView), "", Snackbar.LENGTH_LONG)
+        val snackbar = Snackbar.make(view.findViewById(R.id.SelectScreenLayout), "", Snackbar.LENGTH_LONG)
         val marginFromSides = 0
         val height = 150
 

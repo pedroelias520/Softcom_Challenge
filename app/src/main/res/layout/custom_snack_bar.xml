@@ -9,6 +9,7 @@
     android:textAlignment="center"
     android:gravity="center_horizontal"
     android:id="@+id/custom_snack_bar"
+    android:layout_marginBottom="50dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout

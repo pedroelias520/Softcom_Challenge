@@ -89,7 +89,7 @@ class SelectScreen : Fragment() {
             val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
             val itemRequest: Request = Request(functions.getRandomString(),productSelected,totalPriceRequest, obsEditText.text.toString(),qtdTextView.text.toString().toInt(),dateNow)
             requestList.add(itemRequest)
-            Functions().showSnackBarEndShop(view,"Adicionado ao carrinho de compras")
+            Functions().showSnackBarSelectItem(view.rootView,"Adicionado ao carrinho!")
         }
 
         return view
