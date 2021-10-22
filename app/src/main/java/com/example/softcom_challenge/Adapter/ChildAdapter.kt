@@ -17,16 +17,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.softcom_challenge.Adapter.FilterAdapter
 import com.example.softcom_challenge.MainActivity
 import com.example.softcom_challenge.Models.Product
+import com.example.softcom_challenge.Models.Request
+import com.example.softcom_challenge.Models.requestList
 import com.example.softcom_challenge.R
+import com.example.softcom_challenge.ViewModels.Functions
 import com.example.softcom_challenge.Views.HomeScreen
 import com.example.softcom_challenge.Views.SelectScreen
+import com.google.android.material.snackbar.Snackbar
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
 
     private var items = listOf<Product>()
+    private var functions = Functions()
     fun setItems(list: List<Product>) {
         this.items = list
         notifyDataSetChanged()
@@ -47,7 +54,7 @@ class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
 
     //Carrega um item por vez
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], holder)
 
         holder.itemClickable.setOnClickListener {
             holder.selectItem(items[position], holder)
@@ -87,17 +94,16 @@ class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
             val transitionFragment = SelectScreen()
             transitionFragment.arguments = bundle
             try {
-                //HomeScreen().replaceFragment(transitionFragment)
+
                     val manager = (holder.itemView.context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, transitionFragment)
                     manager.commit()
-                    //fragmentManager.beginTransaction().replace(R.id.fragmentContainer,transitionFragment).commit()
-                //MainActivity().replaceFragment(MainActivity().selectScreen)
+
             }catch (e:Exception){
                 println("ERROR: Page is not found| ${e}")
             }
         }
         //Pega o array e distribui os valores para os items
-        fun bind(item: Product) {
+        fun bind(item: Product, holder: VH) {
             imageView.setImageResource(item.image)
             textView.text = item.name
             priceView.text = item.price.toString()
@@ -125,9 +131,16 @@ class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
             }
 
             shopButton.setOnClickListener {
+                val productSelected: Product = Product(item.name,item.image,item.price,item.oldPrice,item.Description)
+                val totalPriceRequest = item.price * 1
+                val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
+                val itemRequest: Request = Request(Functions().getRandomString(),productSelected,totalPriceRequest, "None",1,dateNow)
+                requestList.add(itemRequest)
 
+                Functions().showSnackBar(it.rootView, item.price.toString(), holder)
             }
         }
+
 
     }
 }

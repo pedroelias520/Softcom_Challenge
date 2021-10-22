@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -58,7 +59,12 @@ class RequestScreen : Fragment() {
         else{
             priceTextView.text = functions.getTotalPriceWishes().toString()
         }
-
+        endShopButton.setOnClickListener {
+            requestList.clear()
+            Functions().showSnackBarEndShop(view, "Compra finalizada")
+            val manager = (it.context as FragmentActivity).supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, RequestScreen())
+            manager.commit()
+        }
     }
 
 }

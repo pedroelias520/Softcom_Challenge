@@ -63,7 +63,7 @@ class HomeScreen : Fragment() {
         Functions().LoadItemsRecycler(parentAdapter)
 
         Functions().LoadSectorsRecycler()
-        HorizontalList.adapter = OperacoesAdapter(Sectors_List)
+        HorizontalList.adapter = OperacoesAdapter(Sectors_List,view)
         HorizontalList.setLayoutManager(mLayoutManager)
 
         //Can I put this into a function?

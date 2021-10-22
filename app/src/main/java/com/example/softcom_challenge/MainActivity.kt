@@ -29,7 +29,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    private val moreScreen: MoreFragment()
+    private val moreScreen =  MoreFragment()
     private val homeFragment = HomeScreen()
     private val requestScreen = RequestScreen()
     val selectScreen = SelectScreen()

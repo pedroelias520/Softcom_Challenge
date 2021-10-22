@@ -25,7 +25,7 @@ import com.example.softcom_challenge.Views.HomeScreen
 import java.util.*
 import kotlin.collections.ArrayList
 
-class OperacoesAdapter(private val dataSet: ArrayList<Sectors>) :
+class OperacoesAdapter(private val dataSet: ArrayList<Sectors>, val rootView: View) :
     RecyclerView.Adapter<OperacoesAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -34,32 +34,22 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>) :
         var buttonSlide: CardView = view.findViewById(R.id.button_slide)
         var context = view.context
         lateinit var filterAdapter: FilterAdapter
-        lateinit var recyclerView:RecyclerView
+        var recyclerView = view.findViewById<RecyclerView>(R.id.RecyclerView_Nested)
         lateinit var scrollStateHolder: ScrollStateHolder
 
         init {
-            try {
-                recyclerView = view.findViewById<RecyclerView>(R.id.RecyclerView_Nested)!!
-            } catch (e: Exception) {
-                println("ERROR: FAILED TO GET RECYCLER VIEW: ${e}")
-            }
             title = view.findViewById(R.id.TextView_Card)
             image = view.findViewById(R.id.ImageView_Card)
-
-
         }
 
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.button_slide_sectors, parent, false)
-        try {
-            ViewHolder(view).recyclerView = view.findViewById(R.id.RecyclerView_Nested)
-        }catch (e:Exception){
 
-        }
         return ViewHolder(view)
     }
 
@@ -78,6 +68,8 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>) :
                 if (it.title == dataSet[position].title) {
                     SearchResult_list.addAll(it.products)
                 }
+
+                holder.recyclerView = rootView.findViewById(R.id.RecyclerView_Nested)
                 holder.filterAdapter = FilterAdapter(holder.context)
                 holder.recyclerView.adapter = holder.filterAdapter
                 holder.recyclerView.layoutManager = GridLayoutManager(holder.context, 2)
@@ -88,6 +80,9 @@ class OperacoesAdapter(private val dataSet: ArrayList<Sectors>) :
         }
 
     }
+
+
+
 
 
 }
