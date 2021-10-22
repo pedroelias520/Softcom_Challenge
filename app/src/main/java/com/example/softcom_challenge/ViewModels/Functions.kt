@@ -60,5 +60,34 @@ class Functions {
             println("Error into load filter recycler view: ${e}")
         }
     }
+
+    fun getTotalPriceWishes(): Double {
+        var totalValue: Double = 0.0
+        if(requestList.size > 0){
+            for (i in 0..(requestList.size-1)){
+                totalValue =+ requestList[i].totalPrice
+            }
+        }
+        return totalValue
+    }
+
+    fun getRandomString() : String {
+        val allowedChars = ('0'..'9')
+        val one = (1..4).map {allowedChars.random()}.joinToString("")
+        val two = (1..4).map {allowedChars.random()}.joinToString("")
+        val three = (1..4).map {allowedChars.random()}.joinToString("")
+        val four = (1..4).map {allowedChars.random()}.joinToString("")
+        val id = one +" "+two+" "+three+" "+four
+
+        if(requestList.size != 0 ){
+            for (i in 0..(requestList.size-1)){
+                if(id == requestList[i].id){
+                    getRandomString()
+                }
+            }
+        }
+
+        return id
+    }
 }
 

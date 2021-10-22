@@ -5,25 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.softcom_challenge.Models.Product
+import com.example.softcom_challenge.Models.Request
+import com.example.softcom_challenge.Models.requestList
 import com.example.softcom_challenge.R
+import com.example.softcom_challenge.ViewModels.Functions
 import org.w3c.dom.Text
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SelectScreen : Fragment() {
 
-
+    lateinit var functions : Functions
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        functions = Functions()
     }
 
     override fun onCreateView(
@@ -39,6 +41,7 @@ class SelectScreen : Fragment() {
         val minusButton: ImageView = view.findViewById(R.id.minusButton)
         val plusutton: ImageView = view.findViewById(R.id.plusButton)
         val qtdTextView: TextView = view.findViewById(R.id.qtdTextView)
+        val obsEditText: EditText= view.findViewById(R.id.ObsEditView)
         var QtdNumber:Int = 1
 
 
@@ -78,6 +81,14 @@ class SelectScreen : Fragment() {
                 qtdTextView.text = QtdNumber.toString()
             }
 
+        }
+
+        addButton.setOnClickListener {
+            val productSelected: Product = Product(nameProduct.toString(),imageProduct.toString().toInt(),priceProduct.toString().toDouble(),oldpriceProduct.toString().toDouble(),descriptionProduct.toString())
+            val totalPriceRequest = priceProduct.toString().toDouble() * qtdTextView.text.toString().toDouble()
+            val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
+            val itemRequest: Request = Request(functions.getRandomString(),productSelected,totalPriceRequest, obsEditText.text.toString(),qtdTextView.text.toString().toInt(),dateNow)
+            requestList.add(itemRequest)
         }
 
         return view

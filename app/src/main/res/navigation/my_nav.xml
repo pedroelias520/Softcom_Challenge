@@ -26,4 +26,13 @@
         android:id="@+id/selectScreen"
         android:name="com.example.softcom_challenge.Views.SelectScreen"
         android:label="SelectScreen" />
+    <fragment
+        android:id="@+id/moreFragment"
+        android:name="com.example.softcom_challenge.MoreFragment"
+        android:label="fragment_more"
+        tools:layout="@layout/fragment_more" >
+        <action
+            android:id="@+id/action_moreFragment_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
 </navigation>

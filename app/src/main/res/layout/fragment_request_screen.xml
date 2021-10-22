@@ -4,45 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_background">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="85dp"
-        android:layout_marginBottom="5dp"
-        android:background="@color/purple_500"
-        app:layout_constraintBottom_toTopOf="@+id/SelectView_Recycler"
+    <TextView
+        android:id="@+id/titleRequestView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Detalhes do Produto"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/RequestRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="176dp"
-            android:layout_marginLeft="176dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="177dp"
-            android:layout_marginRight="177dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/comfortaa_bold"
-            android:text="Detalhes do Produto"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/SelectView_Recycler"
-        android:layout_width="409dp"
-        android:layout_height="550dp"
-
+        android:id="@+id/RequestRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:padding="10dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="1dp"
@@ -54,23 +38,49 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintVertical_bias="0.496" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/endShopButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginLeft="180dp"
         android:layout_marginTop="42dp"
-        android:layout_marginBottom="20dp"
-        android:text="Adicionar"
-        android:fontFamily="@font/comfortaar_regular"
+        android:background="@drawable/border_cicle"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="Finalizar Compra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SelectView_Recycler"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/totalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="Total"
+        android:textColor="@color/white"
+        android:fontFamily="@font/comfortaa_bold"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="11.90"
+        android:textColor="@color/white"
+        android:fontFamily="@font/comfortaa_bold"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

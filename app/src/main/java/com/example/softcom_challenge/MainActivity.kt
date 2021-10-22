@@ -20,6 +20,7 @@ import com.example.softcom_challenge.Models.Category
 import com.example.softcom_challenge.Models.Product
 import com.example.softcom_challenge.Models.Sectors
 import com.example.softcom_challenge.Views.HomeScreen
+import com.example.softcom_challenge.Views.MoreFragment
 import com.example.softcom_challenge.Views.RequestScreen
 import com.example.softcom_challenge.Views.SelectScreen
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,9 +29,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    private val moreScreen: MoreFragment()
     private val homeFragment = HomeScreen()
     private val requestScreen = RequestScreen()
     val selectScreen = SelectScreen()
+
 
     private fun hideSystemUI() {
         // Ativa o modo imersivo de tela
@@ -59,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.ic_homeFragment -> replaceFragment(homeFragment)
                 R.id.ic_RequestFragment -> replaceFragment(requestScreen)
-                R.id.ic_MoreFragment -> replaceFragment(selectScreen)
+                R.id.ic_MoreFragment -> replaceFragment(moreScreen)
             }
             true
         }
