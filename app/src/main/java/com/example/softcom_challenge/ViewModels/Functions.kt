@@ -126,7 +126,7 @@ class Functions {
 
 
         parentParams.bottomMargin = 100
-        parentParams.gravity = Gravity.START
+        parentParams.gravity = Gravity.BOTTOM
         parentParams.height = height
         parentParams.width = LinearLayout.LayoutParams.MATCH_PARENT
         snackBarView.layoutParams = parentParams
