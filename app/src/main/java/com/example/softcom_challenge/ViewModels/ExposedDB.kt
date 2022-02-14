@@ -9,9 +9,10 @@ class ExposedDB {
         val productsIds = (integer("productIds") references Product.id).nullable()
     }
     object Product: Table(){
-        
 
-        val id = integer("id")
+
+
+        val id = varchar("id",12)
         val name = varchar("name",50)
         val price = double("price")
         val image = integer("image")
@@ -21,7 +22,7 @@ class ExposedDB {
     }
     object Request:Table(){
         val id = integer("id").autoIncrement()
-        val productIds = (integer("productIds") references Product.id).nullable()
+        val productIds = (integer("productIds").references(Product.id).nullable()
         val totalPrice = double("totalPrice")
         val observation  = varchar("observation", 300)
         val qtd = integer("qtd")
@@ -32,12 +33,13 @@ class ExposedDB {
         Database.connect("jdbc:h2:mem:test", driver = "org.h2.Driver")
         transaction {
             Product.insert {
-                it[id] = "1001 3004 4005"
+                it[id] = "1001 0000 0000"
                 it[name] = "Ração bom dog"
-                it[price] = "40.00"
-
+                it[price] = 39.90
             }
         }
 
     }
 }
+
+
