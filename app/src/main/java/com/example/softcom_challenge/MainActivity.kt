@@ -1,6 +1,7 @@
 package com.example.softcom_challenge
 
 import ParentAdapter
+import org.jetbrains.exposed.sql.*
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -20,6 +21,7 @@ import com.example.softcom_challenge.Adapter.ScrollStateHolder
 import com.example.softcom_challenge.Models.Category
 import com.example.softcom_challenge.Models.Product
 import com.example.softcom_challenge.Models.Sectors
+import com.example.softcom_challenge.ViewModels.ExposedDB
 import com.example.softcom_challenge.Views.HomeScreen
 import com.example.softcom_challenge.Views.MoreFragment
 import com.example.softcom_challenge.Views.RequestScreen
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
+        ExposedDB()
         replaceFragment(homeFragment)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener {
