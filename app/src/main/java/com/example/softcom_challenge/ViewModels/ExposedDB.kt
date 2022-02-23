@@ -31,8 +31,9 @@ class ExposedDB {
     }
 
     init {
-        Database.connect("jdbc:sqlite:/data/data.db", "org.sqlite.JDBC")
+        val db = Database.connect("jdbc:sqlite:/data/data.db", "org.sqlite.JDBC")
         TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
+
         transaction {
             SchemaUtils.create(Product)
             SchemaUtils.create(Category)
