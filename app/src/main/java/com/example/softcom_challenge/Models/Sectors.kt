@@ -10,6 +10,7 @@ class Sectors (
     var image: Int
 )
 var Sectors_List:ArrayList<Sectors> = ArrayList()
+
 var Comedouros = Sectors(title = "Comedouros", image = R.drawable.food_icon)
 var Camas = Sectors(title = "Camas", image = R.drawable.bed_icon)
 var House = Sectors(title = "Casinhas", image = R.drawable.house_icon)

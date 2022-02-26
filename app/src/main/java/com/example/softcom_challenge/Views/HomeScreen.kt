@@ -13,10 +13,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.francisco.projeto_final_PDMO.MyAdapter.OperacoesAdapter
 import com.example.softcom_challenge.Adapter.FilterAdapter
+import com.example.softcom_challenge.Adapter.HorizontalSideSlideAdapter
 import com.example.softcom_challenge.Adapter.ScrollStateHolder
 import com.example.softcom_challenge.Models.*
 import com.example.softcom_challenge.R
+import com.example.softcom_challenge.ViewModels.ExposedDB
 import com.example.softcom_challenge.ViewModels.Functions
+import org.jetbrains.exposed.sql.selectAll
 import java.util.*
 
 
@@ -62,8 +65,8 @@ class HomeScreen : Fragment() {
         recyclerView_List.layoutManager = LinearLayoutManager(context)
         Functions().LoadItemsRecycler(parentAdapter)
 
-        Functions().LoadSectorsRecycler()
-        HorizontalList.adapter = OperacoesAdapter(Sectors_List,view)
+
+        HorizontalList.adapter = OperacoesAdapter(ExposedDB().loadSectorsRecycler(),view)
         HorizontalList.setLayoutManager(mLayoutManager)
 
         //Can I put this into a function?

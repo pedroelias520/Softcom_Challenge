@@ -16,16 +16,18 @@ import androidx.fragment.app.FragmentActivity
 import com.example.softcom_challenge.MainActivity
 import com.example.softcom_challenge.Views.RequestScreen
 import com.example.softcom_challenge.Views.SelectScreen
+import org.jetbrains.exposed.sql.Query
+import org.jetbrains.exposed.sql.selectAll
+import org.jetbrains.exposed.sql.transactions.transaction
 
 class Functions {
 
     fun LoadSectorsRecycler(){
         try {
-            Sectors_List.add(Toy)
-            Sectors_List.add(Comedouros)
-            Sectors_List.add(Camas)
-            Sectors_List.add(House)
-            Sectors_List.add(Remedios)
+            ExposedDB.Sectors.selectAll().forEach {
+                Sectors_List.add(Sectors(title=it[ExposedDB.Sectors.title], image = it[ExposedDB.Sectors.image]))
+            }
+
         }catch (e:Exception){
             println("Eror in loading horizontal recycler: ${e}")
         }
