@@ -1,50 +1,77 @@
 package com.example.softcom_challenge.ViewModels
 import com.example.softcom_challenge.Models.Product
 import com.example.softcom_challenge.R
+import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.Connection
+import java.sql.DriverManager
 
 class ExposedDB {
     object Category: Table(){
-        val id = integer("id").uniqueIndex()
-        val title =  varchar("title",20)
-        val productsIds = integer("productIds").references(Product.id).nullable()
+        val id:Column<Int> = integer("id").uniqueIndex()
+        val title:Column<String> =  varchar("title",256)
+        val productsIds:Column<Int?> = integer("productIds").references(Product.sequelId).nullable()
     }
-    object Product: Table(){
-        val id = integer("id").uniqueIndex()
-        val name = varchar("name",256)
-        val price = double("price")
-        val image = integer("image")
-        val oldPrice = double("oldPrice")
-        val description = varchar("description",300)
-        override val primaryKey = PrimaryKey(id, name = "PK_Product_ID")
+    object Product: IntIdTable(){
+        val sequelId:Column<Int> = integer("sequelId")
+        val name:Column<String> = varchar("name",256)
+        val price:Column<Double> = double("price")
+        val image:Column<Int> = integer("image")
+        val oldPrice:Column<Double> = double("oldPrice")
+        val description:Column<String> = varchar("description",300)
     }
     object Request:Table(){
-        val id = integer("id").autoIncrement()
-        val productIds = integer("productIds").references(Product.id)
-        val totalPrice = double("totalPrice")
-        val observation  = varchar("observation", 300)
-        val qtd = integer("qtd")
-        val date = varchar("date",50)
+        val id:Column<Int> = integer("id").autoIncrement()
+        val productIds:Column<Int> = integer("productIds").references(Product.sequelId)
+        val totalPrice:Column<Double> = double("totalPrice")
+        val observation:Column<String>  = varchar("observation", 300)
+        val qtd:Column<Int> = integer("qtd")
+        val date:Column<String> = varchar("date",50)
     }
 
     init {
-        val db = Database.connect("jdbc:sqlite:/data/data.db", "org.sqlite.JDBC")
+        Database.connect("jdbc:h2:mem:regular;DB_CLOSE_DELAY=-1;", "org.h2.Driver")
         TransactionManager.manager.defaultIsolationLevel = Connection.TRANSACTION_SERIALIZABLE
 
         transaction {
-            SchemaUtils.create(Product)
-            SchemaUtils.create(Category)
-            SchemaUtils.create(Request)
-            Product.insert {
-                it[id] = 1
-                it[name] = "Ração bom dog"
-                it[price] = 39.90
-                it[image] = R.drawable.toy_icon
-                it[oldPrice] = 35.50
-                it[description] = "Uma bela raça pro seu cachorro"
+            try{
+                SchemaUtils.createDatabase()
+                SchemaUtils.create(Product)
+                SchemaUtils.create(Category)
+                SchemaUtils.create(Request)
+            }catch (e:Exception){
+                print("============================================ \n")
+                print("Oh no! a error founded: ${e} \n")
+                print("============================================ \n")
+            }
+        }
+        transaction {
+            try {
+                for (i:Int in 1..10){
+                    Product.insert {
+                        it[sequelId] = i
+                        it[name] = "Ração bom dog n°${i}"
+                        it[price] = 39.90
+                        it[image] = R.drawable.toy_icon
+                        it[oldPrice] = 35.50
+                        it[description] = "Uma bela raça pro seu cachorro"
+                    }
+                }
+                
+
+            }catch (e:Exception){
+                println("ERROR TO INSERT OU READ \n ${e}")
+            }
+        }
+        transaction {
+            val query = Product.selectAll()
+            query.forEach {
+                println("================================")
+                println("${it[Product.name]} \n")
+                println("${it[Product.sequelId]} \n")
+                println("================================")
             }
         }
     }
