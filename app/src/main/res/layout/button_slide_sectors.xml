@@ -6,18 +6,20 @@
     android:layout_height="wrap_content"
     android:id="@+id/button_slide"
     android:orientation="vertical"
-    android:padding="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginLeft="10dp"
-    android:outlineSpotShadowColor="@color/white"
     android:clickable="true"
+    app:cardElevation="0dp"
+    app:cardBackgroundColor="@color/gray_40"
+    app:cardCornerRadius="10dp"
+    android:background="@drawable/horizontal_item_style"
     >
 
 
     <LinearLayout
-        android:background="@drawable/horizontal_item_style"
+        android:background="@android:color/transparent"
         android:layout_width="100dp"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:paddingRight="10dp"
@@ -26,11 +28,10 @@
 
 
         <RelativeLayout
+            android:paddingTop="10dp"
             android:id="@+id/borderCircle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/border_cicle"
-            android:padding="3dp"
+            android:layout_height="wrap_content"
             >
 
             <RelativeLayout
@@ -48,10 +49,10 @@
 
                 <ImageView
                     android:id="@+id/ImageView_Card"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     app:srcCompat="@drawable/house_icon"
-                    app:tint="#FFFFFF" />
+                    app:tint="@color/purple_500" />
 
             </RelativeLayout>
         </RelativeLayout>
@@ -59,19 +60,20 @@
         <TextView
             android:id="@+id/TextView_Card"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/antipasto_regular"
+            android:layout_height="30dp"
+            android:fontFamily="@font/madetommy_bold"
             android:text="TextView"
             android:textAlignment="center"
             android:textColor="@color/purple_500"
-            android:textSize="15sp"
+            android:textSize="10sp"
+            android:padding="5dp"
             android:autoSizeMaxTextSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0"
-            android:gravity="center_horizontal" />
+            android:gravity="center_vertical" />
     </LinearLayout>
 
 

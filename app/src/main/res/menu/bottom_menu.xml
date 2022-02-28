@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Home"
-        android:icon="@drawable/ic_baseline_home"
+    <item
+        android:title="Home"
+        android:icon="@drawable/lar"
         android:id="@+id/ic_homeFragment"
         />
 
-    <item android:title="Pedidos"
-        android:icon="@drawable/shopping_cart"
+    <item
+        android:title="Pedidos"
+        android:icon="@drawable/bolsa_de_compras"
         android:id="@+id/ic_RequestFragment"
         />
 
-    <item android:title="Mais"
-        android:icon="@drawable/ic_baseline_more"
+    <item
+        android:title="Mais"
+        android:icon="@drawable/menu_hamburguer"
         android:id="@+id/ic_MoreFragment"
         />
 </menu>

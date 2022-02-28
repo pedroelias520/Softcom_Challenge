@@ -1,29 +1,25 @@
 package com.example.softcom_challenge.ViewModels
-import com.example.softcom_challenge.Models.Comedouros
-import com.example.softcom_challenge.Models.Product
-import com.example.softcom_challenge.Models.Sectors
-import com.example.softcom_challenge.Models.Sectors_List
+import com.example.softcom_challenge.Models.*
 import com.example.softcom_challenge.R
+import com.example.softcom_challenge.ViewModels.ExposedDB.Request.autoIncrement
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.TransactionManager
 import org.jetbrains.exposed.sql.transactions.transaction
 import java.sql.Connection
 import java.sql.DriverManager
+import java.util.Random
 
 class ExposedDB {
     object Sectors: Table(){
+        val id:Column<Int> = integer("id").autoIncrement()
         val title: Column<String> = varchar("title",256)
         val image:Column<Int> = integer("image")
-    }
-    object Category: Table(){
-        val id:Column<Int> = integer("id").uniqueIndex()
-        val title:Column<String> =  varchar("title",256)
-        val productsIds:Column<Int?> = integer("productIds").references(Product.sequelId).nullable()
     }
     object Product: IntIdTable(){
         val sequelId:Column<Int> = integer("sequelId")
         val name:Column<String> = varchar("name",256)
+        val category :Column<String> = varchar("category",256)
         val price:Column<Double> = double("price")
         val image:Column<Int> = integer("image")
         val oldPrice:Column<Double> = double("oldPrice")
@@ -46,6 +42,27 @@ class ExposedDB {
         }
         return Sectors_List
     }
+    fun loadProductsRecycler(categoryFilter:String) {
+        try {
+            transaction {
+                Product.select { Product.name eq categoryFilter }.forEach {
+                
+                }
+            }
+        }catch (e:Exception){
+            println("Not found 404")
+        }
+    }
+    fun getRandomCategory():String{
+        var title:String = ""
+        transaction {
+                val number = Random().nextInt(5)
+                Sectors.select { Sectors.id eq number }.forEach {
+                    title =  it[Sectors.title]
+                }
+        }
+        return title
+    }
 
     init {
         Database.connect("jdbc:h2:mem:regular;DB_CLOSE_DELAY=-1;", "org.h2.Driver")
@@ -56,8 +73,8 @@ class ExposedDB {
                 SchemaUtils.createDatabase()
                 SchemaUtils.create(Sectors)
                 SchemaUtils.create(Product)
-                SchemaUtils.create(Category)
                 SchemaUtils.create(Request)
+                getRandomCategory()
             }catch (e:Exception){
                 print("============================================ \n")
                 print("Oh no! a error founded: ${e} \n")
@@ -70,6 +87,7 @@ class ExposedDB {
                     Product.insert {
                         it[sequelId] = i
                         it[name] = "Ração bom dog n°${i}"
+                        it[category] = getRandomCategory()
                         it[price] = 39.90
                         it[image] = R.drawable.toy_icon
                         it[oldPrice] = 35.50
@@ -86,57 +104,28 @@ class ExposedDB {
                 }
                 Sectors.insert {
                     it[Sectors.title] = "Comedouros"
-                    it[Sectors.image] = R.drawable.food_icon
+                    it[Sectors.image] = R.drawable.utensilios
                 }
                 Sectors.insert {
                     it[Sectors.title] = "Camas"
-                    it[Sectors.image] = R.drawable.bed_icon
+                    it[Sectors.image] = R.drawable.cama
                 }
                 Sectors.insert {
                     it[Sectors.title] = "Casinhas"
-                    it[Sectors.image] = R.drawable.house_icon
+                    it[Sectors.image] = R.drawable.lar
                 }
                 Sectors.insert {
                     it[Sectors.title] = "Brinquedos"
-                    it[Sectors.image] = R.drawable.toy_icon
+                    it[Sectors.image] = R.drawable.basquetebol
                 }
                 Sectors.insert {
                     it[Sectors.title] = "Remédios"
-                    it[Sectors.image] = R.drawable.ic_baseline_healing
+                    it[Sectors.image] = R.drawable.medicina
                 }
 
 
             }catch (e:Exception){
                 println("ERROR TO INSERT OU READ \n ${e}")
-            }
-        }
-        transaction {
-            val query = Product.selectAll()
-            query.forEach {
-                println("================================")
-                println("${it[Product.name]} \n")
-                println("${it[Product.sequelId]} \n")
-                println("================================")
-            }
-            val requestList = Request.selectAll()
-            requestList.forEach {
-                println("================================")
-                println("${it[Request.date]} \n")
-                println("${it[Request.qtd]} \n")
-                println("${it[Request.totalPrice]} \n")
-                println("${it[Request.observation]} \n")
-                println("${it[Request.productIds]} \n")
-                Product.select { Product.sequelId eq it[Request.productIds] }.forEach {
-                    println("PRODUTO DENTRO DO PEDIDO: ${it[Product.name]}")
-                }
-                println("================================")
-            }
-            val sectorsList = Sectors.selectAll()
-            sectorsList.forEach {
-                println("================================")
-                println("${it[Sectors.title]} \n")
-                println("${it[Sectors.image]} \n")
-                println("================================")
             }
         }
     }
