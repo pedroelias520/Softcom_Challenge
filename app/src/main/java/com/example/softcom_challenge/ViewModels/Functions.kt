@@ -33,24 +33,8 @@ class Functions {
         }
     }
     fun LoadItemsRecycler(adapter:ParentAdapter){
-        val Racao = Product("Ração Br4Dogs 20Kg Adulto", R.drawable.br4dogs,45.0,0.0,"Uma caminha perfeita para o seu cãozinho")
-        val Cama = Product("Caminha de cachorro Br4dogs", R.drawable.br4dogs_bed,45.50,67.47,"Uma caminha perfeita para o seu cãozinho")
-        val Brinquedo = Product("Bolinha de morder", R.drawable.br4dogs_mordedor,129.90,199.99,"Bolinha anti-stress")
-        val Casa = Product("Casinha de cachorro azul", R.drawable.br4dogs_casa,399.99,349.99,"Casa tamanho médio")
-        val Remedio = Product("Ivermectina 3mg", R.drawable.br4dogs_remedio,23.50,0.0,"Ivermectina 3mg")
-
-        repeat(5){ Comedouros_list.add(Racao)}
-        repeat(5){ Brinquedos_list.add(Brinquedo)}
-        repeat(5){ Casa_list.add(Casa)}
-        repeat(5){ Camas_list.add(Cama)}
-        repeat(5){ Remedios_list.add(Remedio)}
-
          try {
-             Category_lists.add(Category("Comedouros", Comedouros_list))
-             Category_lists.add(Category("Brinquedos", Brinquedos_list))
-             Category_lists.add(Category("Casinhas", Casa_list))
-             Category_lists.add(Category("Camas", Camas_list))
-             Category_lists.add(Category("Remédios", Remedios_list))
+             Category_lists.add(Category("Comedouros", ExposedDB().loadProductsRecycler("Comedouros")))
              TempCategoryLists.addAll(Category_lists)
              adapter.setItems(Category_lists)
          }catch (e:Exception){

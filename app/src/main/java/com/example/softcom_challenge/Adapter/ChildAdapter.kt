@@ -112,7 +112,7 @@ class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
             oldPriceView.setTextColor(Color.parseColor("#FF0000"))
             val discount = ((item.oldPrice - item.price) * 100.0) / item.oldPrice
 
-            val itemSelected = Product(item.name,item.image,item.price,item.oldPrice,item.Description)
+            val itemSelected = Product(item.name,item.image,item.category,item.price,item.oldPrice,item.Description)
 
 
 
@@ -131,7 +131,7 @@ class ChildAdapter() : RecyclerView.Adapter<ChildAdapter.VH>() {
             }
 
             shopButton.setOnClickListener {
-                val productSelected: Product = Product(item.name,item.image,item.price,item.oldPrice,item.Description)
+                val productSelected: Product = Product(item.name,item.image,item.category,item.price,item.oldPrice,item.Description)
                 val totalPriceRequest = item.price * 1
                 val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
                 val itemRequest: Request = Request(Functions().getRandomString(),productSelected,totalPriceRequest, "None",1,dateNow)

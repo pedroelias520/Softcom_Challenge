@@ -5,37 +5,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@color/purple_500"
-    android:textAlignment="center"
-    android:gravity="center_horizontal"
+    android:background="@drawable/background_shopbutton"
     android:id="@+id/custom_snack_bar"
-    android:layout_marginBottom="50dp"
+
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <ImageView
             android:id="@+id/PriceSnackBar"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.045"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/shopping_cart"
+            app:srcCompat="@drawable/ic_baseline_shopping_bag_24"
             app:tint="@color/white" />
 
         <TextView
             android:id="@+id/SeeShopCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
+            android:fontFamily="@font/madetommy_medium"
             android:text="Ver carrinho"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,10 +45,11 @@
             android:id="@+id/PriceSnackBarText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/comfortaa_bold"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/madetommy_regular"
             android:text="100.00"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.954"

@@ -59,13 +59,13 @@
             android:layout_marginEnd="160dp"
             android:layout_marginRight="178dp"
             android:layout_marginBottom="90dp"
-            android:fontFamily="@font/comfortaa_bold"
+            android:fontFamily="@font/madetommy_bold"
             android:text="Pet Friends"
             android:textColor="@color/white"
             android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -80,16 +80,16 @@
             android:layout_marginEnd="90dp"
             android:layout_marginRight="178dp"
             android:layout_marginBottom="50dp"
-            android:fontFamily="@font/comfortaa_light"
+            android:fontFamily="@font/madetommy_light"
             android:text="O melhor para o seu pet"
             android:textColor="@color/white"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.613"
+            app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintVertical_bias="0.431" />
 
         <SearchView
             android:queryHint="Oque deseja"
@@ -114,13 +114,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView_Horizontal"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="130dp"
         android:textAlignment="center"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="1dp"
@@ -137,21 +137,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView_Nested"
-        android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_width="399dp"
+        android:layout_height="470dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
-        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RecyclerView_Horizontal"
-        app:layout_constraintVertical_bias="1.0" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

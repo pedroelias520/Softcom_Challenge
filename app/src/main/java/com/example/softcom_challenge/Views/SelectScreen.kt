@@ -52,6 +52,7 @@ class SelectScreen : Fragment() {
         val oldpriceProduct = args?.getDouble("Old Price")
         val descriptionProduct = args?.getString("Description")
         val discountProduct = args?.getDouble("Discount")
+        val categoryProduct = args?.getDouble("Category")
         qtdTextView.text = QtdNumber.toString()
 
         titleView.text = nameProduct.toString()
@@ -84,7 +85,7 @@ class SelectScreen : Fragment() {
         }
 
         addButton.setOnClickListener {
-            val productSelected: Product = Product(nameProduct.toString(),imageProduct.toString().toInt(),priceProduct.toString().toDouble(),oldpriceProduct.toString().toDouble(),descriptionProduct.toString())
+            val productSelected: Product = Product(nameProduct.toString(),imageProduct.toString().toInt(),categoryProduct.toString(),priceProduct.toString().toDouble(),oldpriceProduct.toString().toDouble(),descriptionProduct.toString())
             val totalPriceRequest = priceProduct.toString().toDouble() * qtdTextView.text.toString().toDouble()
             val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
             val itemRequest: Request = Request(functions.getRandomString(),productSelected,totalPriceRequest, obsEditText.text.toString(),qtdTextView.text.toString().toInt(),dateNow)

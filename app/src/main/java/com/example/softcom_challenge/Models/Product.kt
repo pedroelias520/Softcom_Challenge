@@ -3,7 +3,7 @@ package com.example.softcom_challenge.Models
 import android.widget.ImageView
 
 class Product(
-    val name:String, val image: Int,
+    val name:String, val image: Int,val category: String,
     val price:Double, val oldPrice:Double, val Description:String)
 
 

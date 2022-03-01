@@ -5,50 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:layout_margin="10dp"
-    android:padding="5dp"
+    android:elevation="5dp"
     android:background="@drawable/card_item"
+    android:padding="0dp"
     >
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:fontFamily="@font/comfortaa_bold"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:fontFamily="@font/madetommy_bold"
         android:text="Nome do produto"
         android:textColor="@color/purple_500"
-        android:textSize="10dp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.779"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
+        app:layout_constraintVertical_bias="0.16" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/madetommy_light"
+        android:text="8 Set, 19:47"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496" />
 
     <TextView
         android:id="@+id/totalPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="@font/madetommy_medium"
         android:text="100.00"
-        android:textColor="@color/black"
+        android:textColor="@color/gray_100"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintVertical_bias="0.856" />
 
     <ImageView
-        android:padding="20dp"
         android:id="@+id/requestProdutctImageView"
         android:layout_width="150dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_requestitem"
+        android:padding="20dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/br4dogs_casa" />
 
     <ImageView
@@ -59,41 +76,56 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/card_item_border"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.994"
+        app:layout_constraintHorizontal_bias="0.993"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
+        app:layout_constraintVertical_bias="0.566"
         app:srcCompat="@drawable/ic_baseline_delete"
-        tools:ignore="VectorDrawableCompat"
-        app:tint="@color/purple_500" />
-
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa_bold"
-        android:text="8 Set, 19:47"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:tint="@color/white"
+        tools:ignore="VectorDrawableCompat" />
 
     <TextView
         android:id="@+id/totalQtdTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa_bold"
+        android:fontFamily="@font/madetommy_medium"
         android:text="X1"
         android:textColor="@color/gray_100"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.817"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874" />
+        app:layout_constraintVertical_bias="0.856" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.752"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857"
+        app:srcCompat="@drawable/ic_baseline_inbox_24" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/purple_500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.857"
+        app:srcCompat="@drawable/ic_baseline_attach_money_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

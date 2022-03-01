@@ -54,10 +54,10 @@ class RequestScreen : Fragment() {
         val priceTextView:TextView = view.findViewById(R.id.priceTextView)
         if(functions.getTotalPriceWishes() == 0.0){
             endShopButton.isEnabled = false
-            priceTextView.text = functions.getTotalPriceWishes().toString()
+            priceTextView.text = "$ ${functions.getTotalPriceWishes().toString()}"
         }
         else{
-            priceTextView.text = functions.getTotalPriceWishes().toString()
+            priceTextView.text = "$ ${functions.getTotalPriceWishes().toString()}"
         }
         endShopButton.setOnClickListener {
             requestList.clear()

@@ -9,8 +9,9 @@
     <TextView
         android:id="@+id/nestedTextView"
         style="@style/TextAppearance.AppCompat.Title"
-        android:textSize="20dp"
-        android:fontFamily="@font/antipasto_extrabold"
+        android:textSize="15dp"
+        android:textColor="@color/gray_200"
+        android:fontFamily="@font/madetommy_bold"
         android:paddingBottom="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
