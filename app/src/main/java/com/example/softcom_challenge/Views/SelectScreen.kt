@@ -37,7 +37,8 @@ class SelectScreen : Fragment() {
         val imageView:ImageView = view.findViewById(R.id.productView)
         val discountView:TextView = view.findViewById(R.id.discountCardView)
         val recyclerDescriptionView:TextView = view.findViewById(R.id.descriptionRecycler)
-        val addButton: Button = view.findViewById(R.id.addButton)
+        val priceView: TextView = view.findViewById(R.id.price_textview)
+        val addButton: ImageView = view.findViewById(R.id.addButton)
         val minusButton: ImageView = view.findViewById(R.id.minusButton)
         val plusutton: ImageView = view.findViewById(R.id.plusButton)
         val qtdTextView: TextView = view.findViewById(R.id.qtdTextView)
@@ -55,11 +56,11 @@ class SelectScreen : Fragment() {
         val categoryProduct = args?.getDouble("Category")
         qtdTextView.text = QtdNumber.toString()
 
+        priceView.text = "R$ ${priceProduct.toString()}"
         titleView.text = nameProduct.toString()
         if (imageProduct != null) {
             imageView.setImageResource(imageProduct)
         }
-        addButton.text = "ADICIONAR ${priceProduct.toString()}"
         if (discountProduct != null) {
             if (discountProduct.isNaN() or discountProduct.isInfinite()){
                 discountView.isVisible = false
@@ -87,8 +88,9 @@ class SelectScreen : Fragment() {
         addButton.setOnClickListener {
             val productSelected: Product = Product(nameProduct.toString(),imageProduct.toString().toInt(),categoryProduct.toString(),priceProduct.toString().toDouble(),oldpriceProduct.toString().toDouble(),descriptionProduct.toString())
             val totalPriceRequest = priceProduct.toString().toDouble() * qtdTextView.text.toString().toDouble()
+            val totalPriceRequestFormated = Math.round(totalPriceRequest * 100.0) / 100.0
             val dateNow = SimpleDateFormat("dd/M/yyyy").format(Date())
-            val itemRequest: Request = Request(functions.getRandomString(),productSelected,totalPriceRequest, obsEditText.text.toString(),qtdTextView.text.toString().toInt(),dateNow)
+            val itemRequest: Request = Request(functions.getRandomString(),productSelected,totalPriceRequestFormated, obsEditText.text.toString(),qtdTextView.text.toString().toInt(),dateNow)
             requestList.add(itemRequest)
             Functions().showSnackBarSelectItem(view.rootView,"Adicionado ao carrinho!")
         }

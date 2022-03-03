@@ -22,8 +22,9 @@
         app:navGraph="@navigation/my_nav" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_margin="5dp"
+        android:layout_margin="10dp"
         android:padding="5dp"
+        android:elevation="10dp"
         android:background="@drawable/background_navbar"
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"

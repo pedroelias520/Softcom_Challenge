@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:background="@drawable/background_shopbutton"
     android:id="@+id/custom_snack_bar"
-
+    android:background="@drawable/background_shopbutton"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout

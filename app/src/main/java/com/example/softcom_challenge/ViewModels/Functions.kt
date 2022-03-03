@@ -105,7 +105,7 @@ class Functions {
         }
 
 
-        snackbar.view.setBackgroundColor(Color.WHITE)
+        snackbar.view.setBackgroundColor(Color.TRANSPARENT)
         val snackBarView = snackbar.view as Snackbar.SnackbarLayout
         val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
 
@@ -133,7 +133,7 @@ class Functions {
         snackBarButton.text = price
         snackBarTextView.text = ""
 
-        snackbar.view.setBackgroundColor(Color.WHITE)
+        snackbar.view.setBackgroundColor(Color.TRANSPARENT)
         val snackBarView = snackbar.view as Snackbar.SnackbarLayout
         val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
         parentParams.setMargins(marginFromSides, marginFromSides, marginFromSides, marginFromSides)
@@ -150,7 +150,7 @@ class Functions {
         val inflater: LayoutInflater = LayoutInflater.from(view.context)
 
         val snackbar = Snackbar.make(view.findViewById(R.id.SelectScreenLayout), "", Snackbar.LENGTH_LONG)
-        val marginFromSides = 0
+        val marginFromSides = 50
         val height = 150
 
         val snackView: View = inflater.inflate(R.layout.custom_snack_bar, null)
@@ -159,10 +159,10 @@ class Functions {
         snackBarButton.text = price
         snackBarTextView.text = ""
 
-        snackbar.view.setBackgroundColor(Color.WHITE)
+        snackbar.view.setBackgroundColor(Color.TRANSPARENT)
         val snackBarView = snackbar.view as Snackbar.SnackbarLayout
         val parentParams = snackBarView.layoutParams as FrameLayout.LayoutParams
-        parentParams.setMargins(marginFromSides, marginFromSides, marginFromSides, marginFromSides)
+        parentParams.setMargins(0, 0, 0, marginFromSides)
 
         parentParams.height = height
         parentParams.width = FrameLayout.LayoutParams.MATCH_PARENT
